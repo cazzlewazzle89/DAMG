@@ -84,7 +84,7 @@ then
     for i in $(ls -d "$INPUTDIRECTORY"/fastq_pass/* | sed 's/.*fastq_pass\///')
     do
         echo "Concatenating Reads From" "$i"
-        pigz -cd -p 10 "$INPUTDIRECTORY"/fastq_pass/"$i"/*.fastq.gz | gzip > "$OUTPUTDIRECTORY"/fastq_pass/"$i".fastq.gz
+        pigz -cd -p 10 "$INPUTDIRECTORY"/fastq_pass/"$i"/*.fastq.gz | pigz -p 10 > "$OUTPUTDIRECTORY"/fastq_pass/"$i".fastq.gz
     done
 fi
 
@@ -96,7 +96,7 @@ then
     for i in $(ls -d "$INPUTDIRECTORY"/fastq/* | sed 's/.*fastq\///')
     do
         echo "Concatenating Reads From Sample" "$i"
-        pigz -cd -p 10 "$INPUTDIRECTORY"/fastq/"$i"/*.fastq.gz | gzip > "$OUTPUTDIRECTORY"/fastq/"$i".fastq.gz
+        pigz -cd -p 10 "$INPUTDIRECTORY"/fastq/"$i"/*.fastq.gz | pigz -p 10 > "$OUTPUTDIRECTORY"/fastq/"$i".fastq.gz
     done
 fi
 
