@@ -124,7 +124,7 @@ seqkit stats -a * > ../seqkit_stats.tsv
 
 ls *.fastq.gz | sed 's/.fastq.gz$//' > names.tsv
 
-mdu share --input_file names.tsv --source .
+mdu share --input_file names.tsv --source . -t /home/cwwalsh/share_template.txt
 
 rm -f names.tsv
 
