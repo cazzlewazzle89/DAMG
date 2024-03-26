@@ -71,6 +71,11 @@ then
     then
         mv "$INPUTDIRECTORY"/other_reports/ "$OUTPUTDIRECTORY"
     fi
+
+    if [ -d "$INPUTDIRECTORY"/analysis ]
+    then
+        mv "$INPUTDIRECTORY"/analysis/ "$OUTPUTDIRECTORY"
+    fi
 else
     echo 'Permission Denied'
     exit 1
